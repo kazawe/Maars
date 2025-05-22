@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maars Garage Bv | Autogarage in Antwerpen</title>
+    <meta name="description" content="Maars Garage Bv - Professionele autogarage in Antwerpen. Wij bieden olieverversing, APK, remreparatie, motoronderhoud, bandenservice en meer.">
+    <style>
+        :root {
+            --primary: #e30613;
+            --secondary: #1a1a1a;
+            --light-gray: #f4f4f4;
+            --text-color: #333;
+            --white: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--secondary);
+            color: var(--white);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #c00510;
+            transform: translateY(-2px);
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 1rem auto 0;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .experience-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            width: 120px;
+            height: 120px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .experience-badge span:first-child {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 2rem;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Reviews Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .review-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stars {
+            color: gold;
+            margin-bottom: 1rem;
+        }
+        
+        .review-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .review-author {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .reviews-link {
+            display: block;
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .reviews-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            margin-right: 1rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .contact-details strong {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        
+        .map {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-logo {
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--secondary);
+                padding: 1rem 0;
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 0.5rem 2rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .experience-badge {
+                width: 100px;
+                height: 100px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="images/IMG_1601.jpeg" alt="Maars Garage Logo" class="logo">
+                    <div class="logo-text">
+                        <h1>Maars Garage Bv</h1>
+                        <p>Sinds 2001 in Antwerpen</p>
+                    </div>
+                </div>
+                
+                <button class="mobile-menu-btn">☰</button>
+                
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#over-ons">Over Ons</a></li>
+                        <li><a href="#diensten">Diensten</a></li>
+                        <li><a href="#galerij">Galerij</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero" style="background-image: url('images/IMG_1613.jpeg');">
+        <div class="hero-content">
+            <h2 class="hero-title">Maars Garage Bv</h2>
+            <p class="hero-subtitle">Professionele autoservice in Antwerpen sinds 2001</p>
+            <a href="#contact" class="btn">Neem contact op</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="over-ons">
+        <div class="container">
+            <h2 class="section-title">Over Ons</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Maars Garage Bv is sinds 2001 gevestigd in Antwerpen en staat bekend om onze toewijding aan kwaliteit en klanttevredenheid. Met meer dan 20 jaar ervaring in de autobranche, bieden wij professionele service voor alle automerken.</p>
+                    <p>Onze kernwaarden zijn perfectie, stiptheid en klanttevredenheid. Bij elke reparatie of onderhoudsbeurt streven we ernaar om deze waarden in praktijk te brengen, zodat u met een gerust hart uw auto aan ons kunt toevertrouwen.</p>
+                    <p>Ons team van ervaren monteurs is gespecialiseerd in zowel regulier onderhoud als complexe reparaties. We werken met de nieuwste apparatuur en technieken om uw auto in optimale conditie te houden.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/IMG_1610.jpeg" alt="Maars Garage Werkplaats">
+                    <div class="experience-badge">
+                        <span>20+</span>
+                        <span>Jaar ervaring</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="diensten">
+        <div class="container">
+            <h2 class="section-title">Onze Diensten</h2>
+            <p class="section-subtitle">Bij Maars Garage Bv bieden wij een breed scala aan diensten voor alle automerken. Onze ervaren monteurs staan klaar om u te helpen met zowel regulier onderhoud als complexe reparaties.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🛢️</div>
+                    <h3 class="service-title">Olieverversing</h3>
+                    <p>Regelmatige olieverversing is essentieel voor de levensduur van uw motor. Wij gebruiken alleen hoogwaardige oliën die geschikt zijn voor uw specifieke voertuig.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🚗</div>
+                    <h3 class="service-title">APK</h3>
+                    <p>Onze grondige APK-keuringen zorgen ervoor dat uw auto veilig en volgens de wettelijke normen de weg op kan. Bij eventuele problemen bieden wij direct een passende oplossing.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🛑</div>
+                    <h3 class="service-title">Remreparatie</h3>
+                    <p>Veiligheid staat voorop. Onze specialisten zorgen ervoor dat uw remsysteem in perfecte conditie is, van het vervangen van remblokken tot het reviseren van het volledige systeem.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3 class="service-title">Motoronderhoud</h3>
+                    <p>Met onze expertise in motoronderhoud en -reparatie houden we uw auto in topconditie. We diagnosticeren en repareren alle soorten motorproblemen.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3 class="service-title">Bandenservice</h3>
+                    <p>Van seizoenswissels tot balanceren en uitlijnen, onze complete bandenservice zorgt ervoor dat u veilig en comfortabel rijdt met de juiste banden voor uw auto.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#contact" class="btn">Maak een afspraak</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galerij">
+        <div class="container">
+            <h2 class="section-title">Onze Werkplaats</h2>
+            <p class="section-subtitle">Bekijk onze moderne werkplaats en krijg een indruk van ons vakmanschap. Bij Maars Garage Bv werken we met de nieuwste apparatuur om uw auto in topconditie te houden.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/IMG_1605.jpeg" alt="Motor onderdelen">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/IMG_1606.jpeg" alt="Motorblok reparatie">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/IMG_1607.jpeg" alt="Motoronderhoud">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/IMG_1608.jpeg" alt="Buitenaanzicht Maars Garage">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/IMG_1609.jpeg" alt="Werkplaats met gereedschap">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/IMG_1611.jpeg" alt="Motor inspectie">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+        <div class="container">
+            <h2 class="section-title">Wat Onze Klanten Zeggen</h2>
+            <p class="section-subtitle">Bij Maars Garage Bv streven we naar 100% klanttevredenheid. Lees hieronder wat onze klanten over ons zeggen.</p>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Uitstekende service! Mijn auto had een complex probleem met de motor, maar het team van Maars Garage heeft het snel en professioneel opgelost. Zeer tevreden!"</p>
+                    <p class="review-author">Jan Vermeulen</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Al jaren een trouwe klant bij Maars Garage. Ze zijn altijd eerlijk, betrouwbaar en leveren kwaliteitswerk. De prijzen zijn ook zeer redelijk voor de geboden service."</p>
+                    <p class="review-author">Sophie De Vries</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="stars">★★★★☆</div>
+                    <p class="review-text">"Goede ervaring met de APK keuring en onderhoud van mijn BMW. Professioneel team dat duidelijk communiceert over wat er moet gebeuren en waarom."</p>
+                    <p class="review-author">Thomas Janssens</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Fantastische service! Ze hebben mijn auto gerepareerd toen ik met pech stond en hadden alles snel voor elkaar. Zeer behulpzaam en klantvriendelijk."</p>
+                    <p class="review-author">Lisa Peeters</p>
+                </div>
+            </div>
+            
+            <a href="https://g.co/kgs/RMzP5hk" target="_blank" class="reviews-link">
+                Bekijk alle 80+ reviews op Google →
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <p class="section-subtitle">Heeft u vragen of wilt u een afspraak maken? Neem gerust contact met ons op of bezoek onze garage in Antwerpen.</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contactgegevens</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <strong>Adres</strong>
+                            <p>Michel Willemsplein 8, 2610 Antwerpen</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <strong>Telefoon</strong>
+                            <p>0472 88 39 17</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <strong>E-mail</strong>
+                            <p>Garagemaars@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div class="contact-details">
+                            <strong>Openingstijden</strong>
+                            <p>Maandag t/m vrijdag: 09:00 – 18:00</p>
+                            <p>Zaterdag: 09:00 – 16:00</p>
+                            <p>Zondag: Gesloten</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2499.6988503083493!2d4.4152!3d51.2099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3f7c5d6c3b9a9%3A0x73a1d3f70c298bf0!2sMichel%20Willemsplein%208%2C%202610%20Antwerpen%2C%20Belgium!5e0!3m2!1sen!2sus!4v1621436289012!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <img src="images/IMG_1601.jpeg" alt="Maars Garage Logo" class="footer-logo">
+                    <p>Professionele autoservice in Antwerpen sinds 2001. Wij staan voor perfectie, stiptheid en klanttevredenheid.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">📱</a>
+                        <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                        <a href="mailto:Garagemaars@gmail.com" class="social-link" aria-label="Email">✉️</a>
+                        <a href="tel:0472883917" class="social-link" aria-label="Phone">📞</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Snelle Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#over-ons">Over Ons</a></li>
+                        <li><a href="#diensten">Diensten</a></li>
+                        <li><a href="#galerij">Galerij</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contactgegevens</h3>
+                    <p>Michel Willemsplein 8, 2610 Antwerpen</p>
+                    <p>Telefoon: 0472 88 39 17</p>
+                    <p>Email: Garagemaars@gmail.com</p>
+                    <p>
+                        <strong>Openingstijden:</strong><br>
+                        Ma-Vr: 09:00 – 18:00<br>
+                        Za: 09:00 – 16:00<br>
+                        Zo: Gesloten
+                    </p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; <span id="current-year"></span> Maars Garage Bv. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('#main-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
